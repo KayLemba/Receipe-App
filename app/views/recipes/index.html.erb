@@ -1,12 +1,12 @@
 
-<div class="container">
+<div class="container" style="width: 100%">
   <div class="is-flex is-justify-content-end my-6">
     <%= link_to 'Create Recipe', new_recipe_path, class: "btn btn-dark cr-btn" %>
   </div>
   <ul style="padding: 2rem 0 0 0;">
     <% if @recipes.size > 0%>
     <% @recipes.each do |r| %>
-    <li class="card mb-3" style="max-width: 850px;" >
+    <li class="card mb-3">
       <div class="row">
         <div class="col-3 card-body" >
           <%= link_to recipe_path(r.id), id: "recipe_path#{r.id}" do %>
