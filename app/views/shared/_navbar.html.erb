@@ -1,0 +1,24 @@
+<header>
+  <nav class="d-flex flex-column align-items-center fs-6 justify-content-between my-3">
+    <div class="logo">
+      <h1 class="display-6 text-uppercase text-bold">U-Recipes</h1>
+    </div>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <%= link_to('Food', foods_path, class: 'nav-link') %>
+      </li>
+      <li class="nav-item">
+        <%= link_to('Recipes', recipes_path, class: 'nav-link') %>
+      </li>
+      <li class="nav-item">
+        <%= link_to('Public Recipes', public_recipes_index_path, class: 'nav-link') %>
+      </li>
+      <li class="nav-item">
+        <%= link_to('Shopping list', shopping_lists_index_path, class: 'nav-link') %>
+      </li>
+    </ul>
+    <% if user_signed_in? %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-light sign-btn" %>
+    <% end %>
+  </nav>
+</header>
