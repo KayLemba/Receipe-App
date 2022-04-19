@@ -1,0 +1,22 @@
+<%= form_with(model: recipe_food) do |form| %>
+  <div class="field container">
+    <%= form.label :food, class: "form-label" %>
+    <div>
+      <%= form.select :food_id, @foods, class:"form-select" %>
+    </div>
+  </div>
+
+  <div class="field container">
+    <%= form.label :quantity, class: "form-label" %>
+    <div class="control">
+      <%= form.text_field :quantity, class: "form-control", type: "number", required: true, min: 1 %>
+    </div>
+  </div>
+
+  <%= form.hidden_field :recipe_id, value: recipe_food.recipe_id %>
+
+  <div class="container p-3">
+    <%= form.submit class: "btn btn-info" %> ||
+    <%= link_to 'Back', url_for(:back), class: "btn btn-info" %>
+  </div>
+<% end %>

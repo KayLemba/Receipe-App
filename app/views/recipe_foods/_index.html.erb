@@ -1,0 +1,31 @@
+<% if @recipe.recipe_foods %>
+<div class="table-container">
+  <table class="table table-bordered table-hover">
+    <thead class="table-info">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <tr>
+          <th class="align-middle"><%= recipe_food.food.name %></th>
+          <td class="align-middle"><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></td>
+          <td class="align-middle">$<%= recipe_food.quantity * recipe_food.food.price %></td>
+			    <% if can? :update, recipe_food.recipe %>
+            <td>
+              <div class="d-flex">
+                <%= link_to 'Edit', edit_recipe_food_path(recipe_food), class: "btn btn-warning btn-sm" %> ||
+                <%= button_to "Delete", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: "btn btn-danger btn-sm"%>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+</div>
+<% end %>
