@@ -11,6 +11,10 @@ class Recipe < ApplicationRecord
     recipe_foods.sum(:quantity)
   end
 
+  def self.public_recipe
+    Recipe.where(public: true)
+  end
+
   def total_price
     recipe_foods.joins(:recipe, :food).sum('price * quantity')
   end
