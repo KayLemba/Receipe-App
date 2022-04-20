@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Recipe Foods', type: :feature do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create(name: 'Donard', email: 'a@game.com', password: 'password', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'Donard', email: 'a@game.com', password: 'password') }
   let(:food) { Food.create(user_id: user.id, name: 'Apple', measurement_unit: 'kg', price: 12) }
   let(:recipe) do
     Recipe.create(name: 'Pizza', cooking_time: 1, preparation_time: 2, description: 'description', public: false,

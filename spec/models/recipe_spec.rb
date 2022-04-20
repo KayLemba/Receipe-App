@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  let(:user) { User.create(name: 'Donard', email: 'example@mail.com', password: 'password', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'Donard', email: 'example@mail.com', password: 'password') }
   let(:recipe) do
     Recipe.create(user_id: user.id, name: 'Wonderful cake', cooking_time: 5.5, preparation_time: 12.6,
                   description: 'Test the wonderful cake', public: true)

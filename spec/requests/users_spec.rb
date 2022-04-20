@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create(name: 'Cork', email: 'example@mail.com', password: 'password', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'Cork', email: 'example@mail.com', password: 'password') }
   describe 'GET /index' do
     before do
       sign_in user

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Foods', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  let(:user) { User.create(name: 'Kalolo Chola Lemba', email: 'test@gmail.com', password: 'password', confirmed_at: Time.now) }
+  let(:user) { User.create(name: 'Kalolo Chola Lemba', email: 'test@gmail.com', password: 'password') }
   let(:food) { user.foods.create(name: 'Jollofrice', measurement_unit: 'kg', price: 5) }
 
   describe 'GET /index' do

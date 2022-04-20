@@ -12,7 +12,7 @@ RSpec.feature 'Signup', type: :feature do
   end
 
   it 'click the login error' do
-    User.create(name: 'Hello', email: 'hello@example.com', password: 'password', confirmed_at: Time.now)
+    User.create(name: 'Hello', email: 'hello@example.com', password: 'password')
     visit 'users/sign_up'
     fill_in 'user[email]', with: 'user@example.com'
     fill_in 'user[password]', with: 'password'
