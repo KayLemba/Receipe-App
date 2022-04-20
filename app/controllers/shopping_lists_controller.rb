@@ -1,5 +1,5 @@
 class ShoppingListsController < ApplicationController
   def index
-    @recipes = RecipeFood.all
+    @recipes = RecipeFood.includes(:food).all
   end
 end
