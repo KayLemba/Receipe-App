@@ -6,8 +6,11 @@
       <div class="row">
         <div class="col-3 card-body" >
           <%= link_to recipe_path(r.id), id: "recipe_path#{r.id}" do %>
-          <h4 class="text-dark text-center" style="margin-bottom: 2.5rem;"><%= r.name%></h4>
-          <% end %>
+            <div class="d-flex flex-column">
+              <h4 class="text-dark text-center" style="margin-bottom: 2.5rem;"><%= r.name%></h4>
+            <% end %>
+              <p class="text-dark fs-4 text-center">By <%= r.user.name %></p>
+          </div>
           <% if can? :delete, r %>
             <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 0.7rem;">
               <%= button_to "Remove", recipe_path(r.id), method: :delete, class: "btn btn-info"%>
@@ -16,7 +19,11 @@
         </div>
         <div class="col-9" >
           <div class="card-body">
-            <p class="card-text"><%= r.description%></p>
+            <div>
+              <p class="card-text">Total food items: <%= r.total_items%></p>
+              <p class="card-text">Total price: <%= r.total_price%></p>
+            </div>
+            
             <p class="card-text text-end"><small class="text-muted"><%= r.updated_at%></small></p>
           </div>
         </div>
