@@ -24,11 +24,11 @@
     <% if user_signed_in? %>
       <div class="d-flex justify-content-around" style="margin-bottom: 2rem;">
         <div class="w-30">
-          <%= link_to "Generate shopping list", recipes_path, data: {disable_with: "Adding..."}, class: "btn btn-info"%>
+          <%= link_to "Generate shopping list", recipes_path, data: {disable_with: "Adding..."}, class: "btn btn-success"%>
         </div>
         <% if can? :update, @recipe %>
           <div>
-            <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: "btn btn-info" %>
+            <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: "btn btn-success" %>
           </div>
         <% end %>
       </div>
