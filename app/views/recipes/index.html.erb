@@ -1,7 +1,7 @@
 
 <div class="container" style="width: 100%">
   <div class="is-flex is-justify-content-end my-6">
-    <%= link_to 'Create Recipe', new_recipe_path, class: "btn btn-success cr-btn" %>
+    <%= link_to 'Create Recipe', new_recipe_path, class: "btn btn-dark cr-btn" %>
   </div>
   <ul style="padding: 2rem 0 0 0;">
     <% if @recipes.size > 0%>
@@ -14,7 +14,7 @@
           <% end %>
           <% if can? :delete, r %>
             <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 0.7rem;">
-              <%= button_to "Remove", recipe_path(r.id), method: :delete, class: "btn btn-danger"%>
+              <%= button_to "Remove", recipe_path(r.id), method: :delete, class: "btn btn-info"%>
             </div>
           <% end %>
         </div>

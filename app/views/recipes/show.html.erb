@@ -1,4 +1,4 @@
-<div class="border rec-border border-3 border-success container p-2 my-5 rounded" style="padding: 5rem;">
+<div class="border border-2 border-info container p-2 my-5 rounded" style="padding: 5rem;">
   <div class="my-3 text-center">
     <h2 class><%= @recipe.name%></h2>
   </div>
@@ -24,11 +24,11 @@
     <% if user_signed_in? %>
       <div class="d-flex justify-content-around" style="margin-bottom: 2rem;">
         <div class="w-30">
-          <%= link_to "Generate shopping list", recipes_path, data: {disable_with: "Adding..."}, class: "btn btn-success"%>
+          <%= link_to "Generate shopping list", recipes_path, data: {disable_with: "Adding..."}, class: "btn btn-info"%>
         </div>
         <% if can? :update, @recipe %>
           <div>
-            <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: "btn btn-success" %>
+            <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: "btn btn-info" %>
           </div>
         <% end %>
       </div>
