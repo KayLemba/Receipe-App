@@ -1,0 +1,40 @@
+<div class="border border-2 border-info container p-2 my-5 rounded" style="padding: 5rem;">
+  <div class="my-3 text-center">
+    <h2 class><%= @recipe.name%></h2>
+  </div>
+  <div>
+    <div class="split">
+      <div class="d-flex justify-content-between p-2">
+        <h5> Preparation time: <%= @recipe.preparation_time %> minutes </h5>
+        <div class="form-check form-switch">
+          <% if @recipe.public %>
+            Public <input type="checkbox" checked="true" class="form-check-input" role="switch" id="flexSwitchCheckedDefault" >
+          <% end %>
+          <% if !@recipe.public %>
+            Public <input type="checkbox" class="form-check-input" role="switch" id="flexSwitchCheckDefault"  >
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h5 class="p-2"> Cooking time: <%= @recipe.cooking_time %> minutes </h5>
+      <h5 class="p-2"> <%= @recipe.description %></h5>
+    </div>
+    
+    <% if user_signed_in? %>
+      <div class="d-flex justify-content-around" style="margin-bottom: 2rem;">
+        <div class="w-30">
+          <%= link_to "Generate shopping list", recipes_path, data: {disable_with: "Adding..."}, class: "btn btn-success"%>
+        </div>
+        <% if can? :update, @recipe %>
+          <div>
+            <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="column is-three-quarters">
+      <%= render partial: "recipe_foods/index", locals: { recipe_foods: @recipe } %>
+    </div>
+  </div>
+</div>
